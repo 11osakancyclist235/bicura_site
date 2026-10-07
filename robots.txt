@@ -1,0 +1,5 @@
+# AIを含むすべてのクローラーにサイト全体の閲覧を許可する
+User-agent: *
+Allow: /
+
+Sitemap: https://bicura.app/sitemap.xml

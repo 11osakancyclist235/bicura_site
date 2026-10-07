@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bicura — 自転車のパーツ健康度と交換時期がわかるアプリ</title>
+<meta name="description" content="Bicuraは、走行ログとメンテナンス記録から自転車のパーツの健康度を自動で計算し、交換時期を教えてくれるiPhoneアプリです。データはすべて端末内に保存されます。">
+<link rel="canonical" href="https://bicura.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bicura">
+<meta property="og:title" content="Bicura — 自転車のパーツ健康度と交換時期がわかるアプリ">
+<meta property="og:description" content="Bicuraは、走行ログとメンテナンス記録から自転車のパーツの健康度を自動で計算し、交換時期を教えてくれるiPhoneアプリです。データはすべて端末内に保存されます。">
+<meta property="og:url" content="https://bicura.app/">
+<meta property="og:image" content="https://bicura.app/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@bicura_app">
+<link rel="icon" href="./assets/icon-512.png">
+<link rel="apple-touch-icon" href="./assets/icon-180.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Bicura",
+  "alternateName": "Bicura - 自転車メンテナンス",
+  "description": "Bicuraは、走行ログとメンテナンス記録から自転車のパーツの健康度を自動で計算し、交換時期を教えてくれるiPhoneアプリです。データはすべて端末内に保存されます。",
+  "applicationCategory": "SportsApplication",
+  "operatingSystem": "iOS 17.0以降",
+  "url": "https://bicura.app/",
+  "downloadUrl": "https://apps.apple.com/jp/app/bicura/id6796735795",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+</head>
+<body>
+<style>
+  :root {
+    --bg: #0b1220;
+    --bg2: #0f172a;
+    --card: #16233b;
+    --line: #22314e;
+    --text: #e6edf7;
+    --muted: #93a4bd;
+    --em: #10b981;
+    --em-soft: rgba(16,185,129,.12);
+    --amber: #f59e0b;
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .em { color: var(--em); }
+
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .doc { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- header ---------- */
+  header.site {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+  }
+  header.site .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-size: 20px; font-weight: 800; letter-spacing: .01em; }
+  .logo span { color: var(--em); }
+  nav.site-nav { display: flex; gap: 24px; align-items: center; font-size: 14px; color: var(--muted); }
+  nav.site-nav a:hover { color: var(--text); }
+  .badge-soon {
+    font-size: 12px; font-weight: 700; color: var(--em); background: var(--em-soft);
+    border: 1px solid rgba(16,185,129,.3); border-radius: 999px; padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 13px 26px; border-radius: 999px; font-size: 15px; font-weight: 700;
+    border: none; cursor: default;
+  }
+  .btn-primary { background: var(--em); color: #06281d; box-shadow: 0 8px 30px rgba(16,185,129,.35); }
+  .btn-ghost { color: var(--text); border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+  .pill-note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+  /* ---------- device frame ---------- */
+  .device {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 294 / 640;
+    margin: 0 auto;
+    border-radius: 40px;
+    background: #000;
+    border: 1px solid var(--line);
+    padding: 10px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+  }
+  .device .screen {
+    display: block;
+    width: 100%; height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+    object-position: top center;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+
+  /* ---------- generic sections ---------- */
+  section { padding: 72px 0; }
+  section.alt { background: var(--bg2); }
+  h1, h2, h3 { margin: 0 0 12px; }
+  h2 { font-size: 28px; }
+  .lead { color: var(--muted); max-width: 640px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  /* ---------- link cards (X / Note などの外部リンク) ---------- */
+  a.link-card {
+    display: block;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  a.link-card:hover {
+    border-color: var(--em);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- badges & plan lists ---------- */
+  .badge-tier {
+    display: inline-block; font-size: 12px; font-weight: 700; color: var(--amber);
+    background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.3);
+    border-radius: 999px; padding: 4px 12px;
+  }
+  .plan-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+    font-size: 13px; color: var(--muted);
+  }
+  .plan-list li { padding-left: 18px; position: relative; }
+  .plan-list li::before {
+    content: "✓"; position: absolute; left: 0; color: var(--em); font-weight: 700;
+  }
+
+  /* ---------- footer ---------- */
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: 32px 0;
+    color: var(--muted); font-size: 13px;
+  }
+  footer.site .wrap {
+    display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;
+  }
+  footer.site nav { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+  footer.site a:hover { color: var(--text); }
+
+  @media (max-width: 640px) {
+    section { padding: 48px 0; }
+    h2 { font-size: 22px; }
+    nav.site-nav { gap: 14px; font-size: 13px; }
+  }
+</style>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="./">Bi<span>cura</span></a>
+    <nav class="site-nav">
+      <a href="./faq/">FAQ</a>
+      <a href="./privacy/">プライバシー</a>
+      <a href="./support/">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+
+<section>
+  <div class="wrap" style="display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+    <div style="flex:1 1 380px; min-width:280px;">
+      <h1 style="font-size:38px; line-height:1.3;">愛車の状態が、<br>ひと目でわかる。</h1>
+      <p class="lead" style="margin:18px 0 28px; font-size:17px;">
+        走行するほど、パーツの消耗がわかっていく。Bicuraは、自転車のパーツの健康度を自動で計算し、交換時期を教えてくれるアプリです。ロードバイク・グラベルロード・クロスバイク・マウンテンバイク・シティサイクルに対応しています。
+      </p>
+      <div>
+        
+          <a class="btn btn-primary" href="https://apps.apple.com/jp/app/bicura/id6796735795" target="_blank" rel="noopener">App Store でダウンロード</a>
+        
+      </div>
+      <p class="pill-note">データはすべて端末内に保存。外部サーバーへの送信は一切ありません。</p>
+    </div>
+    <div style="flex:1 1 280px; min-width:240px; position:relative;">
+      <div style="position:absolute; inset:-40px; background:radial-gradient(circle at center, var(--em-soft), transparent 70%); z-index:0;"></div>
+      <div class="device" style="position:relative; z-index:1;">
+        <img class="screen" src="./assets/hero.jpg" alt="Bicuraのホーム画面。総合健康度100%と構造健康度・コンディションが円グラフで表示されている" width="414" height="900">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="feature-parts">
+  <div class="wrap feature-row" style="display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+    <div style="flex:1 1 380px; min-width:280px;">
+      <h2>消耗パーツの交換時期、感覚で判断していませんか。</h2>
+      <p class="lead">チェーンやタイヤ、ブレーキパッドなど最大16系統のパーツを、構造摩耗とコンディションの2軸で自動計算。数値で「今どれくらい使えるか」がわかります。すでに乗っているバイクでも、これまでの走行距離と最近の手入れを答えるだけで、今の状態から始められます。</p>
+    </div>
+    <div class="device flip-desktop" style="flex:1 1 240px; min-width:220px; max-width:260px; margin:0 auto;">
+      <img class="screen" src="./assets/feature-parts.jpg" alt="パーツ別の健康度一覧。チェーン・ギア周り・タイヤなどが構造とコンディションの2軸で表示されている" width="414" height="900">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap feature-row" style="display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+    <div style="flex:1 1 380px; min-width:280px;">
+      <h2>記録するほど、健康度に反映される。</h2>
+      <p class="lead">走行ログとメンテナンス記録を積み重ねるだけで、パーツごとの消耗が自動で更新されていきます。チェーンの手入れや洗車といったよく行う整備は、ワンタップで記録できます。過去の走行実績もひと目で振り返れます。</p>
+    </div>
+    <div class="device" style="flex:1 1 240px; min-width:220px; max-width:260px; margin:0 auto;">
+      <img class="screen" src="./assets/feature-log.jpg" alt="走行ログの履歴一覧。日付ごとに距離・時間・獲得標高・平均速度が並んでいる" width="414" height="900">
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap feature-row" style="display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+    <div style="flex:1 1 380px; min-width:280px;">
+      <h2>Apple Watchのワークアウトを、ワンタップで取り込み。</h2>
+      <p class="lead">ヘルスケアに保存されたサイクリングのワークアウトを読み取り、走行ログとして自動反映。.fitファイルの読み込みにも対応しています。</p>
+    </div>
+    <div class="device flip-desktop" style="flex:1 1 240px; min-width:220px; max-width:260px; margin:0 auto;">
+      <img class="screen" src="./assets/feature-health.jpg" alt="記録画面のインポートタブ。.fitファイルの読み込みとApple Watchからの取得が選べる" width="414" height="900">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap feature-row" style="display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+    <div style="flex:1 1 380px; min-width:280px;">
+      <span class="badge-tier">Bicura Readiness</span>
+      <h2 style="margin-top:12px;">「整備しておけば良かった」をなくす。</h2>
+      <p class="lead">予定しているライドを安心して走れる状態かをスコアと推奨事項で診断。劣化シミュレーション・交換時期予測・健康診断レポート・年間保全計画で、愛車の未来を先読みできます。</p>
+    </div>
+    <div class="device" style="flex:1 1 240px; min-width:220px; max-width:260px; margin:0 auto;">
+      <img class="screen" src="./assets/readiness.jpg" alt="ライド前診断の画面。Bike Readinessスコアと、走行前に推奨される整備項目が表示されている" width="414" height="900">
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 style="text-align:center;">データはすべて、あなたの端末の中に。</h2>
+    <p class="lead" style="max-width:600px; margin:0 auto 40px; text-align:center;">Bicuraは外部サーバーを持たない、ローカルファースト設計です。</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px;">
+      <div class="card">
+        <h3 style="color:var(--em); font-size:16px;">外部サーバーなし</h3>
+        <p class="lead" style="margin:0; font-size:14px;">走行ログ・メンテナンス記録・写真は端末の外へ送信されません。</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--em); font-size:16px;">トラッキングゼロ</h3>
+        <p class="lead" style="margin:0; font-size:14px;">解析SDK・広告SDKを一切使用していません。</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--em); font-size:16px;">削除すればすべて消える</h3>
+        <p class="lead" style="margin:0; font-size:14px;">アプリを削除すると、端末内のデータもすべて削除されます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 style="text-align:center;">料金</h2>
+    <p class="lead" style="max-width:600px; margin:0 auto 32px; text-align:center;">基本機能は無料でお使いいただけます。「過去の記録を振り返りたい」「未来の整備を先読みしたい」という方に向けて、2つの追加プランをご用意しています。</p>
+    <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; align-items:stretch;">
+      <div class="card" style="flex:1 1 260px; max-width:320px;">
+        <h3 style="font-size:18px;">無料</h3>
+        <p class="lead" style="font-size:14px; margin-bottom:14px;">まず使い始めるための基本機能です。</p>
+        <ul class="plan-list">
+          <li>走行ログ・メンテナンス記録（よく行う整備はワンタップ）</li>
+          <li>パーツ健康度の確認（最大16系統）</li>
+          <li>.fit / Apple Watchからのインポート</li>
+          <li>注油・洗浄リマインド</li>
+          <li>SNSシェアカード（写真入り・3サイズ）</li>
+        </ul>
+      </div>
+      <div class="card" style="flex:1 1 260px; max-width:320px; border-color:var(--em);">
+        <h3 style="font-size:18px;" class="em">Bicura Pro</h3>
+        <p class="lead" style="font-size:14px; margin-bottom:6px;">買い切り。過去の記録を、もっと自分らしく。</p>
+        <p class="lead" style="font-size:12px; margin-bottom:14px;">1回購入すれば追加料金なし</p>
+        <ul class="plan-list">
+          <li>健康度の推移トレンド表示</li>
+          <li>ホーム画面への愛車写真表示</li>
+          <li>テーマカラーのカスタマイズ</li>
+        </ul>
+      </div>
+      <div class="card" style="flex:1 1 260px; max-width:320px; border-color:var(--amber);">
+        <h3 style="font-size:18px; color:var(--amber);">Bicura Readiness</h3>
+        <p class="lead" style="font-size:14px; margin-bottom:6px;">サブスクリプション。愛車の未来を先読みする。</p>
+        <p class="lead" style="font-size:12px; margin-bottom:14px;">月額・年額プランからお選びいただけます</p>
+        <ul class="plan-list">
+          <li>ライド前診断（Bike Readiness）</li>
+          <li>劣化シミュレーション</li>
+          <li>交換時期予測</li>
+          <li>健康診断レポート</li>
+          <li>年間保全計画</li>
+        </ul>
+      </div>
+    </div>
+    <p class="pill-note" style="text-align:center; margin-top:20px;">価格・購入手続きはApp Store上の表示に従います。Bicura Readinessは自動更新サブスクリプションで、購入後はApp Storeのアカウント設定からいつでも管理・解約できます。</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2 style="text-align:center;">最新情報と開発の記録</h2>
+    <p class="lead" style="max-width:600px; margin:0 auto 32px; text-align:center;">メンテナンスのヒントやアップデート情報はXで、開発の裏側はNoteで発信しています。</p>
+    <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; align-items:stretch;">
+      <a class="card link-card" style="flex:1 1 260px; max-width:340px;" href="https://x.com/bicura_app" target="_blank" rel="noopener">
+        <h3 style="font-size:17px; margin-bottom:4px;" class="em">X</h3>
+        <p class="lead" style="font-size:13px; margin:0 0 10px;">@bicura_app</p>
+        <p class="lead" style="font-size:14px; margin:0;">パーツのメンテナンスに役立つTipsや、アップデートのお知らせを投稿しています。</p>
+      </a>
+      <a class="card link-card" style="flex:1 1 260px; max-width:340px;" href="https://note.com/amasay_aarik" target="_blank" rel="noopener">
+        <h3 style="font-size:17px; margin-bottom:4px;" class="em">Note</h3>
+        <p class="lead" style="font-size:13px; margin:0 0 10px;">開発記録</p>
+        <p class="lead" style="font-size:14px; margin:0;">Bicuraをどう設計し、どう作っているかを個人開発の記録として書いています。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  @media (min-width: 641px) {
+    .flip-desktop { order: -1; }
+  }
+</style>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Bicura</span>
+    <nav>
+      <a href="./">トップ</a>
+      <a href="./faq/">よくある質問</a>
+      <a href="./privacy/">プライバシーポリシー</a>
+      <a href="./terms/">利用規約</a>
+      <a href="./support/">お問い合わせ</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

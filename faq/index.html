@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よくある質問 | Bicura</title>
+<meta name="description" content="Bicuraの使い方、健康度の考え方、データの保存場所、料金についてのよくある質問です。">
+<link rel="canonical" href="https://bicura.app/faq/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bicura">
+<meta property="og:title" content="よくある質問 | Bicura">
+<meta property="og:description" content="Bicuraの使い方、健康度の考え方、データの保存場所、料金についてのよくある質問です。">
+<meta property="og:url" content="https://bicura.app/faq/">
+<meta property="og:image" content="https://bicura.app/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@bicura_app">
+<link rel="icon" href="../assets/icon-512.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+</head>
+<body>
+<style>
+  :root {
+    --bg: #0b1220;
+    --bg2: #0f172a;
+    --card: #16233b;
+    --line: #22314e;
+    --text: #e6edf7;
+    --muted: #93a4bd;
+    --em: #10b981;
+    --em-soft: rgba(16,185,129,.12);
+    --amber: #f59e0b;
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .em { color: var(--em); }
+
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .doc { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- header ---------- */
+  header.site {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+  }
+  header.site .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-size: 20px; font-weight: 800; letter-spacing: .01em; }
+  .logo span { color: var(--em); }
+  nav.site-nav { display: flex; gap: 24px; align-items: center; font-size: 14px; color: var(--muted); }
+  nav.site-nav a:hover { color: var(--text); }
+  .badge-soon {
+    font-size: 12px; font-weight: 700; color: var(--em); background: var(--em-soft);
+    border: 1px solid rgba(16,185,129,.3); border-radius: 999px; padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 13px 26px; border-radius: 999px; font-size: 15px; font-weight: 700;
+    border: none; cursor: default;
+  }
+  .btn-primary { background: var(--em); color: #06281d; box-shadow: 0 8px 30px rgba(16,185,129,.35); }
+  .btn-ghost { color: var(--text); border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+  .pill-note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+  /* ---------- device frame ---------- */
+  .device {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 294 / 640;
+    margin: 0 auto;
+    border-radius: 40px;
+    background: #000;
+    border: 1px solid var(--line);
+    padding: 10px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+  }
+  .device .screen {
+    display: block;
+    width: 100%; height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+    object-position: top center;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+
+  /* ---------- generic sections ---------- */
+  section { padding: 72px 0; }
+  section.alt { background: var(--bg2); }
+  h1, h2, h3 { margin: 0 0 12px; }
+  h2 { font-size: 28px; }
+  .lead { color: var(--muted); max-width: 640px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  /* ---------- link cards (X / Note などの外部リンク) ---------- */
+  a.link-card {
+    display: block;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  a.link-card:hover {
+    border-color: var(--em);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- badges & plan lists ---------- */
+  .badge-tier {
+    display: inline-block; font-size: 12px; font-weight: 700; color: var(--amber);
+    background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.3);
+    border-radius: 999px; padding: 4px 12px;
+  }
+  .plan-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+    font-size: 13px; color: var(--muted);
+  }
+  .plan-list li { padding-left: 18px; position: relative; }
+  .plan-list li::before {
+    content: "✓"; position: absolute; left: 0; color: var(--em); font-weight: 700;
+  }
+
+  /* ---------- footer ---------- */
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: 32px 0;
+    color: var(--muted); font-size: 13px;
+  }
+  footer.site .wrap {
+    display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;
+  }
+  footer.site nav { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+  footer.site a:hover { color: var(--text); }
+
+  @media (max-width: 640px) {
+    section { padding: 48px 0; }
+    h2 { font-size: 22px; }
+    nav.site-nav { gap: 14px; font-size: 13px; }
+  }
+</style>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="../">Bi<span>cura</span></a>
+    <nav class="site-nav">
+      <a href="../faq/">FAQ</a>
+      <a href="../privacy/">プライバシー</a>
+      <a href="../support/">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+
+<section>
+  <div class="doc">
+    <h1>よくある質問</h1>
+    <p class="lead">Bicuraの使い方や、健康度の考え方についてお答えします。</p>
+
+    <h2>データと保存</h2>
+
+    <div class="qa">
+      <h3>記録したデータはどこに保存されますか？</h3>
+      <p>すべてお使いのiPhoneの中だけに保存されます。Bicuraは外部サーバーを持たないため、走行ログ・メンテナンス記録・愛車写真が端末の外へ送信されることはありません。</p>
+    </div>
+
+    <div class="qa">
+      <h3>機種変更したとき、データは引き継げますか？</h3>
+      <p>端末のバックアップ（iCloudバックアップ、またはパソコンでのバックアップ）から新しい端末を復元すれば、Bicuraのデータも一緒に引き継がれます。なお、Bicuraは端末間のリアルタイム同期は行っていないため、2台のiPhoneで同じ記録を同時に共有することはできません。購入済みのBicura Pro・Bicura Readinessは、各購入画面の「購入を復元」から反映できます。</p>
+    </div>
+
+    <div class="qa">
+      <h3>複数台のバイクを別々に管理できますか？</h3>
+      <p>現在のバージョンでは、1台分の記録を管理する設計になっています。複数台を切り替えて管理する機能はありません。</p>
+    </div>
+
+    <div class="qa">
+      <h3>アプリを削除するとどうなりますか？</h3>
+      <p>端末内に保存されたすべてのデータ（走行ログ・メンテナンス記録・設定・写真）が削除されます。ヘルスケアアプリに元から記録されているワークアウトのデータは影響を受けません。</p>
+    </div>
+
+    <h2>健康度の見かた</h2>
+
+    <div class="qa">
+      <h3>「構造健康度」と「コンディション」は何が違いますか？</h3>
+      <p>構造健康度は、走行によって物理的に進む摩耗を表します。元に戻らない量で、回復するのは「交換」を記録したときだけです。コンディションは油脂の状態や汚れを表し、「洗浄」「注油」「グリスアップ」を記録すると回復します。よく整備していればコンディションは高く保てますが、構造健康度は走るほど下がっていきます。</p>
+    </div>
+
+    <div class="qa">
+      <h3>健康度はどのように計算されていますか？</h3>
+      <p>走行距離・走行時間・獲得標高・天候（雨天）・路面・体重や機材重量などから、パーツごとの負荷を積算しています。そのうえで独自のモデルにより、寿命に近づくほど健康度が急に落ちる、実際の消耗に近い挙動を再現しています。</p>
+    </div>
+
+    <div class="qa">
+      <h3>パーツによって「%」だったり「良好・点検推奨」だったりするのはなぜですか？</h3>
+      <p>パーツを3つに分類し、それぞれ判断に役立つ形式で表示しているためです。</p>
+      <ul>
+        <li><strong>消耗品</strong>（チェーン・タイヤ・ブレーキパッドなど）: 交換時期の判断に直結するため、健康度%で表示します。</li>
+        <li><strong>整備品</strong>（BB・ハブ・ヘッドパーツなど）: 交換ではなく点検やグリスアップで維持するものなので、「良好／注意／点検推奨／OH推奨」の4段階で表示します。</li>
+        <li><strong>構造物</strong>（フレーム・ホイールなど）: 摩耗より衝撃や経年が支配的なため、「健全／経過観察／点検推奨」で表示します。</li>
+      </ul>
+    </div>
+
+    <div class="qa">
+      <h3>健康度が下がると色が変わるのはなぜですか？</h3>
+      <p>70%を「そろそろ交換を計画し始める」目安、30%を「交換を推奨する」レベルとして設定しています。70%を下回ると注意を促す表示になり、30%を下回ると交換推奨レベルの表示に変わります。</p>
+    </div>
+
+    <h2>予測機能（Bicura Readiness）</h2>
+
+    <div class="qa">
+      <h3>交換時期予測は何を根拠にしていますか？</h3>
+      <p>直近8週間の走行実績から平均的な走行ペースを求め、そのペースで走り続けた場合に各パーツの構造健康度が交換推奨レベル（30%）へ達する時期を計算しています。「これから整備をしなかった場合」のシミュレーションのため、実際に交換や整備を記録すると予測は自動的に更新されます。1年より先になるものは「1年以上先」と表示されます。なお、直近8週間に走行記録がない場合は予測できません。</p>
+    </div>
+
+    <div class="qa">
+      <h3>ライド前診断のスコアはどう読めばよいですか？</h3>
+      <p>予定しているライドの距離・獲得標高・天候などを踏まえ、走り終えたときのパーツ状態を試算してスコア化しています。</p>
+      <ul>
+        <li><strong>90以上</strong>: Ready（安心して走行できます）</li>
+        <li><strong>70〜89</strong>: Almost Ready（軽整備を推奨します）</li>
+        <li><strong>50〜69</strong>: Maintenance Recommended（事前整備を推奨します）</li>
+        <li><strong>50未満</strong>: Not Recommended（整備後の走行を推奨します）</li>
+      </ul>
+    </div>
+
+    <div class="qa">
+      <h3>予測は必ず当たりますか？</h3>
+      <p>いいえ。これらは「このペースで走り、整備をしなかったら」という条件つきのシミュレーションであり、故障を予知するものではありません。表示はあくまで参考情報としてお使いいただき、安全に関わる部品の状態は必ず自転車店等での点検でご確認ください。</p>
+    </div>
+
+    <h2>記録とインポート</h2>
+
+    <div class="qa">
+      <h3>Apple Watchの記録を自動で取り込めますか？</h3>
+      <p>できます。手動でのインポートに加え、設定で「自動取り込み」をオンにすると、ヘルスケアに新しいサイクリングワークアウトが保存されたときに、アプリを開いていなくてもバックグラウンドで走行ログへ反映されます。初期設定はオフです。</p>
+    </div>
+
+    <div class="qa">
+      <h3>インポートすると天候や路面はどうなりますか？</h3>
+      <p>天候・路面・ルート種別はワークアウトのデータに含まれないため、既定値を補って登録されます。これらの項目は健康度の計算に影響するため、実際の走行条件と異なる場合は、取り込み後に記録を編集してください。</p>
+    </div>
+
+    <div class="qa">
+      <h3>同じライドを二重に取り込んでしまいませんか？</h3>
+      <p>すでに登録済みのライドは自動的にスキップされるため、重複して登録されることはありません。</p>
+    </div>
+
+    <div class="qa">
+      <h3>洗車や注油をまとめて記録できますか？</h3>
+      <p>できます。記録画面の「チェーンの手入れ」「簡易洗車」「基本洗車」「専門店洗車」「オーバーホール」をタップすると、そのメニューに含まれる洗浄・注油・グリスアップがパーツごとにまとめて記録されます。お使いのバイクに付いていないパーツは自動で除かれます。同じ日にもう一度タップすると、確認のうえ取り消せます。</p>
+    </div>
+
+    <div class="qa">
+      <h3>詳細な記録で、注油するパーツとしないパーツを同時に選べないのはなぜですか？</h3>
+      <p>パーツによってコンディションの回復条件が異なるためです。チェーンのように注油で回復するパーツと、タイヤのように洗浄が意味を持つパーツを同時に記録すると、状態を正しく反映できません。詳細な記録では種類を分けて記録してください。まとめて記録したい場合は、上記のワンタップのメニューが便利です。</p>
+    </div>
+
+    <div class="qa">
+      <h3>雨の日に走ったのに、注油の通知が来ません。</h3>
+      <p>注油・洗浄リマインドは雨天走行を記録した数時間後に届きますが、通知が多くなりすぎないよう月4回までに制限されています。また、その日にすでに注油・洗浄・グリスアップを記録している場合は通知されません。</p>
+    </div>
+
+    <h2>設定</h2>
+
+    <div class="qa">
+      <h3>ロードバイク以外でも使えますか？</h3>
+      <p>使えます。ロードバイク・グラベルロード・クロスバイク・マウンテンバイク・シティサイクルから車種を選ぶと、装備しているパーツや標準的な重量、パーツの寿命、よく走る路面の初期値が車種に合わせて設定されます。「よく走る場所」は車種とは別に選び直せます。電動アシスト自転車の場合は、車体の重量に反映されます。</p>
+    </div>
+
+    <div class="qa">
+      <h3>すでに乗っているバイクでも始められますか？</h3>
+      <p>始められます。最初の設定で、これまでの走行距離（メーターの値、または週あたりの距離からの目安）と、最近行った手入れ・交換したパーツとその時期を答えると、その分を反映した健康度から使い始められます。答えなかった項目は記録されません。ヘルスケアから取り込んだ過去のライドと、申告した走行距離が二重に計上されることはありません。</p>
+    </div>
+
+    <div class="qa">
+      <h3>保管環境の設定は何に影響しますか？</h3>
+      <p>「屋内」「屋外（屋根あり）」「屋外（野ざらし）」から選べます。湿気や雨水にさらされる度合いが変わるため、走っていない期間のサビや、ゴム・樹脂パーツの劣化の進み方に影響します。設定を変更した場合、変更した日以降の期間にのみ新しい設定が適用されます。</p>
+    </div>
+
+    <div class="qa">
+      <h3>パーツの寿命を自分で調整できますか？</h3>
+      <p>できます。「パーツ寿命設定」から、パーツごとの寿命の初期値を調整できます。この機能は無料でお使いいただけます。</p>
+    </div>
+
+    <div class="qa">
+      <h3>自分のバイクに付いていないパーツはどうすればよいですか？</h3>
+      <p>車種の設定に応じて、装備していないパーツは健康度の計算や交換時期予測の対象から自動的に除外されます。また「カスタムパーツ」から、標準の16系統以外のパーツを追加して管理することもできます。</p>
+    </div>
+
+    <h2>料金</h2>
+
+    <div class="qa">
+      <h3>無料でどこまで使えますか？</h3>
+      <p>走行ログとメンテナンスの記録、最大16系統のパーツ健康度の確認、.fitファイルやApple Watchからのインポート、注油・洗浄リマインド、SNSシェアカードは無料でお使いいただけます。</p>
+    </div>
+
+    <div class="qa">
+      <h3>Bicura ProとBicura Readinessは何が違いますか？</h3>
+      <p>Bicura Proは買い切りで、過去の記録をより深く見るための機能（健康度の推移トレンド、愛車写真のホーム表示、テーマカラー）が使えます。Bicura Readinessは自動更新サブスクリプションで、未来を予測する機能（ライド前診断、劣化シミュレーション、交換時期予測、健康診断レポート、年間保全計画）が使えます。それぞれ独立しているため、必要な方だけを選んでいただけます。</p>
+    </div>
+
+    <div class="qa">
+      <h3>サブスクリプションの解約方法は？</h3>
+      <p>iPhoneの「設定」アプリからApple IDを開き、「サブスクリプション」からBicura Readinessを選んで解約できます。期間満了の24時間以上前に自動更新を解除しない限り、自動的に更新されます。</p>
+    </div>
+
+    <div class="qa">
+      <h3>購入したのに機能が使えません。</h3>
+      <p>各購入画面の「購入を復元」をタップしてください。機種変更後や再インストール後は、この操作が必要な場合があります。</p>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  .doc h2 {
+    margin-top:48px; padding-bottom:8px; border-bottom:1px solid var(--em); font-size:19px;
+  }
+  .doc .qa { margin-top:28px; }
+  .doc .qa h3 { font-size:15px; margin:0 0 8px; }
+  .doc p, .doc li { color: var(--muted); line-height:1.9; }
+  .doc .qa p { margin:0 0 8px; font-size:14px; }
+  .doc ul { padding-left: 1.4em; margin:8px 0 0; }
+  .doc li { font-size:14px; }
+  .doc strong { color: var(--text); }
+</style>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Bicura</span>
+    <nav>
+      <a href="../">トップ</a>
+      <a href="../faq/">よくある質問</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../terms/">利用規約</a>
+      <a href="../support/">お問い合わせ</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

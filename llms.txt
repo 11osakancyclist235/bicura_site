@@ -1,0 +1,23 @@
+# Bicura
+
+> 走行ログとメンテナンス記録から、自転車のパーツの健康度を自動で計算し、交換時期を教えてくれるiPhoneアプリ（iOS 17以降・基本無料）。データはすべて端末内に保存され、外部サーバーへの送信や解析・広告SDKはない。
+
+- 対応車種: ロードバイク・グラベルロード・クロスバイク・マウンテンバイク・シティサイクル
+- チェーン・タイヤ・ブレーキパッドなど最大16系統のパーツを、構造健康度（摩耗。交換でのみ回復）とコンディション（汚れ・油脂。洗浄・注油で回復）の2軸で表示する
+- 走行はヘルスケアのサイクリングのワークアウト（Apple Watchなど）や .fit ファイルから取り込める
+- 料金: 基本機能は無料。Bicura Pro（買い切り）は健康度の推移・愛車写真・テーマカラー。Bicura Readiness（自動更新サブスク）はライド前診断・劣化シミュレーション・交換時期予測・健康診断レポート・年間保全計画
+- 価格はApp Storeの表示が正
+
+## ページ
+
+- [トップ](https://bicura.app/): 機能と料金の概要
+- [よくある質問](https://bicura.app/faq/): 健康度の計算・予測の根拠・記録とインポート・料金
+- [プライバシーポリシー](https://bicura.app/privacy/)
+- [利用規約](https://bicura.app/terms/)
+- [お問い合わせ](https://bicura.app/support/): contact@bicura.app
+
+## リンク
+
+- [App Store](https://apps.apple.com/jp/app/bicura/id6796735795)
+- [X @bicura_app](https://x.com/bicura_app): メンテナンスのヒントと更新情報
+- [Note](https://note.com/amasay_aarik): 開発記録

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利用規約 | Bicura</title>
+<meta name="description" content="Bicuraの利用規約です。">
+<link rel="canonical" href="https://bicura.app/terms/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bicura">
+<meta property="og:title" content="利用規約 | Bicura">
+<meta property="og:description" content="Bicuraの利用規約です。">
+<meta property="og:url" content="https://bicura.app/terms/">
+<meta property="og:image" content="https://bicura.app/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@bicura_app">
+<link rel="icon" href="../assets/icon-512.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+</head>
+<body>
+<style>
+  :root {
+    --bg: #0b1220;
+    --bg2: #0f172a;
+    --card: #16233b;
+    --line: #22314e;
+    --text: #e6edf7;
+    --muted: #93a4bd;
+    --em: #10b981;
+    --em-soft: rgba(16,185,129,.12);
+    --amber: #f59e0b;
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .em { color: var(--em); }
+
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .doc { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- header ---------- */
+  header.site {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+  }
+  header.site .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-size: 20px; font-weight: 800; letter-spacing: .01em; }
+  .logo span { color: var(--em); }
+  nav.site-nav { display: flex; gap: 24px; align-items: center; font-size: 14px; color: var(--muted); }
+  nav.site-nav a:hover { color: var(--text); }
+  .badge-soon {
+    font-size: 12px; font-weight: 700; color: var(--em); background: var(--em-soft);
+    border: 1px solid rgba(16,185,129,.3); border-radius: 999px; padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 13px 26px; border-radius: 999px; font-size: 15px; font-weight: 700;
+    border: none; cursor: default;
+  }
+  .btn-primary { background: var(--em); color: #06281d; box-shadow: 0 8px 30px rgba(16,185,129,.35); }
+  .btn-ghost { color: var(--text); border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+  .pill-note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+  /* ---------- device frame ---------- */
+  .device {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 294 / 640;
+    margin: 0 auto;
+    border-radius: 40px;
+    background: #000;
+    border: 1px solid var(--line);
+    padding: 10px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+  }
+  .device .screen {
+    display: block;
+    width: 100%; height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+    object-position: top center;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+
+  /* ---------- generic sections ---------- */
+  section { padding: 72px 0; }
+  section.alt { background: var(--bg2); }
+  h1, h2, h3 { margin: 0 0 12px; }
+  h2 { font-size: 28px; }
+  .lead { color: var(--muted); max-width: 640px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  /* ---------- link cards (X / Note などの外部リンク) ---------- */
+  a.link-card {
+    display: block;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  a.link-card:hover {
+    border-color: var(--em);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- badges & plan lists ---------- */
+  .badge-tier {
+    display: inline-block; font-size: 12px; font-weight: 700; color: var(--amber);
+    background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.3);
+    border-radius: 999px; padding: 4px 12px;
+  }
+  .plan-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+    font-size: 13px; color: var(--muted);
+  }
+  .plan-list li { padding-left: 18px; position: relative; }
+  .plan-list li::before {
+    content: "✓"; position: absolute; left: 0; color: var(--em); font-weight: 700;
+  }
+
+  /* ---------- footer ---------- */
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: 32px 0;
+    color: var(--muted); font-size: 13px;
+  }
+  footer.site .wrap {
+    display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;
+  }
+  footer.site nav { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+  footer.site a:hover { color: var(--text); }
+
+  @media (max-width: 640px) {
+    section { padding: 48px 0; }
+    h2 { font-size: 22px; }
+    nav.site-nav { gap: 14px; font-size: 13px; }
+  }
+</style>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="../">Bi<span>cura</span></a>
+    <nav class="site-nav">
+      <a href="../faq/">FAQ</a>
+      <a href="../privacy/">プライバシー</a>
+      <a href="../support/">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+
+<section>
+  <div class="doc">
+    <h1>Bicura 利用規約</h1>
+    <p class="lead">最終改定日: 2026年7月14日</p>
+
+    <h2>第1条（適用）</h2>
+    <p>本規約は、Bicura（以下「本アプリ」）の利用に関する条件を、利用者と開発者との間で定めるものです。利用者は、本アプリを利用することで本規約に同意したものとみなされます。</p>
+
+    <h2>第2条（本アプリの位置づけ・免責）</h2>
+    <p>本アプリは、利用者が入力・取り込んだ走行および整備の記録をもとに、独自のモデルにより自転車各パーツの摩耗・健康度・交換時期の目安を「推定・参考表示」するものです。表示される数値・時期・推奨はあくまで参考であり、実際のパーツの状態や安全性を保証するものではありません。ブレーキ・タイヤ・チェーン等の安全上重要な部品を含め、整備・交換の要否は必ず有資格の専門家（自転車店等）による点検で判断してください。本アプリの表示のみに依拠したことにより生じたいかなる結果についても、開発者は責任を負いません。</p>
+
+    <h2>第3条（データの正確性）</h2>
+    <p>推定結果の精度は、利用者が入力・取り込んだデータの正確性に依存します。特にヘルスケアからの自動取り込みでは、データに含まれない項目（天候・路面・ルート種別）を既定値で補って登録するため、実際の走行条件と異なる場合があります。利用者は、必要に応じて記録を確認・修正できます。</p>
+
+    <h2>第4条（課金・サブスクリプション）</h2>
+    <p>本アプリの一部機能は、App Storeを通じた買い切り（Bicura Pro）または自動更新サブスクリプション（Bicura Readiness）として提供されます。購入・支払い・更新・解約はAppleのApp Storeの仕組み、およびAppleの標準EULA（エンドユーザー使用許諾契約）に従います。サブスクリプションは、期間満了の24時間以上前に自動更新を解除しない限り自動的に更新されます。解約はApp Storeの購読管理から行えます。</p>
+
+    <h2>第5条（禁止事項）</h2>
+    <p>利用者は、本アプリのリバースエンジニアリング、法令や公序良俗に反する利用、その他開発者または第三者の権利を侵害する行為を行ってはなりません。</p>
+
+    <h2>第6条（知的財産権）</h2>
+    <p>本アプリおよびそれが提供するコンテンツに関する著作権その他の知的財産権は、開発者または正当な権利者に帰属します。</p>
+
+    <h2>第7条（保証の否認・責任の制限）</h2>
+    <p>本アプリは現状有姿で提供され、特定目的への適合性・正確性・完全性・可用性について、明示黙示を問わず保証しません。適用される法令が許容する範囲において、本アプリの利用に関連して生じた損害について開発者は責任を負いません。</p>
+
+    <h2>第8条（規約の変更）</h2>
+    <p>開発者は、必要に応じて本規約を変更することがあります。変更後の規約は、アプリのアップデートを通じて本画面に表示された時点から効力を生じます。</p>
+
+    <h2>第9条（準拠法）</h2>
+    <p>本規約は日本法に準拠して解釈されます。</p>
+
+    <h2>お問い合わせ</h2>
+    <p>本規約に関するお問い合わせは、<a href="mailto:contact@bicura.app" class="em">contact@bicura.app</a> までお願いします。</p>
+  </div>
+</section>
+
+
+<style>
+  .doc h2 { margin-top:40px; padding-bottom:8px; border-bottom:1px solid var(--em); font-size:19px; }
+  .doc p, .doc li { color: var(--muted); line-height:1.9; }
+  .doc ul { padding-left: 1.4em; }
+</style>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Bicura</span>
+    <nav>
+      <a href="../">トップ</a>
+      <a href="../faq/">よくある質問</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../terms/">利用規約</a>
+      <a href="../support/">お問い合わせ</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
